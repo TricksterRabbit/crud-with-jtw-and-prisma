@@ -1,0 +1,37 @@
+{
+  "name": "crud-with-jtw-and-prisma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
+  },
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "migrate": "prisma migrate dev --name init",
+    "secret-generate": "node -e console.log(require('crypto').randomBytes(64).toString('hex'))"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TricksterRabbit/crud-with-jtw-and-prisma.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TricksterRabbit/crud-with-jtw-and-prisma/issues"
+  },
+  "homepage": "https://github.com/TricksterRabbit/crud-with-jtw-and-prisma#readme",
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "prisma": "^4.5.0"
+  }
+}
