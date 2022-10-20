@@ -1,14 +1,16 @@
 const userService = require("../services/userService");
-const generateAccessToken = require("../utils/jwt");
+const { encrypt } = require("../utils/hash");
 
 const createUser = async (req, res) => {
   let { name, email, password } = req.body;
 
-  const user = await userService.createUser(name, email, password);
+  const encryptedPassword = await encrypt(password);
 
-  const token = generateAccessToken(email, user.id);
+  const user = await userService.createUser(name, email, encryptedPassword);
 
-  res.status(201).json({ token });
+  if (user !== null)
+    res.status(201).json({ message: "user created successfully" });
+  else res.status(400);
 };
 
 const getAllUsers = async (req, res) => {
