@@ -23,6 +23,8 @@
   "homepage": "https://github.com/TricksterRabbit/crud-with-jtw-and-prisma#readme",
   "dependencies": {
     "@prisma/client": "^4.5.0",
+    "ajv": "^8.11.0",
+    "ajv-formats": "^2.1.1",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

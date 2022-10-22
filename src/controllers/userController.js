@@ -36,7 +36,18 @@ const getUserByEmail = async (req, res) => {
 const updateUserById = async (req, res) => {
   let { name, email, password } = req.body;
 
-  await userService.updateUserById(req.user.id, name, email, password);
+  if (!password) {
+    await userService.updateUserById(req.user.id, name, email);
+  } else {
+    const encryptedPassword = await encrypt(password);
+
+    await userService.updateUserById(
+      req.user.id,
+      name,
+      email,
+      encryptedPassword
+    );
+  }
 
   res.status(200).json({ message: "user modified successfully" });
 };
