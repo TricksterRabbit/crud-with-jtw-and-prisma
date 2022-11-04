@@ -9,7 +9,8 @@
   "scripts": {
     "start": "nodemon src/server.js",
     "migrate": "prisma migrate dev --name init",
-    "secret-generate": "node -e console.log(require('crypto').randomBytes(64).toString('hex'))"
+    "secret-generate": "node -e console.log(require('crypto').randomBytes(64).toString('hex'))",
+    "up": "docker compose up"
   },
   "repository": {
     "type": "git",
